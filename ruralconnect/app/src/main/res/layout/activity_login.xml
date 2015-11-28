@@ -80,7 +80,7 @@
         android:onClick="login"
         android:allowUndo="true" />
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Don't have AADHAR? Click here to sign up"
@@ -92,6 +92,7 @@
         android:layout_marginLeft="25dp"
         android:layout_marginRight="25dp"
         android:textSize="16dp"
+        android:onClick="register"
         android:textColor="@color/link_blue"
         />
 

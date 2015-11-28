@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <TextView
+        android:id="@+id/login_title"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:text="SIGN UP"
+        android:fontFamily="sans-serif"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"
+        />
+    <EditText
+        android:id="@+id/name"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:hint="Name"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/login_title"
+        />
+    <EditText
+        android:id="@+id/age"
+        android:layout_width="fill_parent"
+        android:layout_height="40dp"
+        android:hint="Age"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@id/name"
+        />
+    <EditText
+        android:id="@+id/income"
+        android:layout_width="70dp"
+        android:layout_height="40dp"
+        android:textAlignment="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_below="@id/name"
+        />
+
+    <EditText
+        android:id="@+id/gender"
+        android:layout_width="290dp"
+        android:layout_height="40dp"
+        android:hint="Gender"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_below="@id/name"
+        android:typeface="serif"
+        android:inputType="phone"
+        android:maxLength="10"/>
+
+    <Button
+        android:id="@+id/submit"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="@android:color/holo_blue_light"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="100dp"
+        android:text="SIGN UP"
+        android:onClick="submitForm"
+        />
+
+</LinearLayout>
