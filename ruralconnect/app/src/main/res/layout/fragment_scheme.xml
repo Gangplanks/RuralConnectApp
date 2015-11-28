@@ -30,12 +30,10 @@
             android:id="@+id/ratingBar"
             android:clickable="true"
             android:numStars="5"
-            android:rating="0"
+            android:stepSize="0.4"
             android:layout_below="@+id/textView11"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:layout_toEndOf="@+id/textView17"
-            android:layout_toRightOf="@+id/textView17" />
+            android:layout_gravity="end"
+            />
 
         <TextView
             android:id="@+id/textView8"

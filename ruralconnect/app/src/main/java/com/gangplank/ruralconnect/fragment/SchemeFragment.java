@@ -64,21 +64,21 @@ public class SchemeFragment extends Fragment {
 
     private void inflateView(Scheme scheme) {
         TextView nameView = (TextView) view.findViewById(R.id.textView8);
-        nameView.setText(nameView.getText() + "\n" + scheme.getName());
+        nameView.setText("\n" + nameView.getText() + "\n\n" + scheme.getName());
 
         TextView departmentView = (TextView) view.findViewById(R.id.textView9);
-        departmentView.setText(departmentView.getText() + "\n" + scheme.getDepartment());
+        departmentView.setText("\n" + departmentView.getText() + "\n\n" + scheme.getDepartment());
 
         TextView fundingView = (TextView) view.findViewById(R.id.textView10);
-        fundingView.setText(fundingView.getText() + "\n" + scheme.getFunding_pattern());
+        fundingView.setText("\n" + fundingView.getText() + "\n\n" + scheme.getFunding_pattern());
 
         TextView availFromView = (TextView) view.findViewById(R.id.textView15);
-        availFromView.setText(availFromView.getText() + "\n" + scheme.getAvail_from());
+        availFromView.setText("\n" + availFromView.getText() + "\n\n" + scheme.getAvail_from());
 
         TextView validFromView = (TextView) view.findViewById(R.id.textView16);
-        validFromView.setText(validFromView.getText() + "\n" + scheme.getValid_from());
+        validFromView.setText("\n" + validFromView.getText() + "\n\n" + scheme.getValid_from());
 
         TextView descriptionView = (TextView) view.findViewById(R.id.textView18);
-        descriptionView.setText(descriptionView.getText() + "\n" + scheme.getDescription());
+        descriptionView.setText("\n" + descriptionView.getText() + "\n\n" + scheme.getDescription());
     }
 }
