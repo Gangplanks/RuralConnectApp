@@ -1,6 +1,8 @@
 package com.gangplank.ruralconnect.fragment;
 
+import android.app.Fragment;
 import android.app.ListFragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -44,7 +46,6 @@ public class MySchemeFragment extends ListFragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         mAdapter = new MySchemeAdapter(getActivity(), R.layout.content_myscheme, DummyContent.ITEMS);
         setListAdapter(mAdapter);
     }

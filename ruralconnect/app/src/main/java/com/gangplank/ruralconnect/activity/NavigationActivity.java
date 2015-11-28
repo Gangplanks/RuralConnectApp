@@ -2,6 +2,7 @@ package com.gangplank.ruralconnect.activity;
 
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -19,6 +20,7 @@ import android.view.MenuItem;
 import com.gangplank.ruralconnect.R;
 import com.gangplank.ruralconnect.fragment.AboutFragment;
 import com.gangplank.ruralconnect.fragment.MySchemeFragment;
+import com.gangplank.ruralconnect.fragment.SchemeFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -79,6 +81,14 @@ public class NavigationActivity extends AppCompatActivity
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void viewScheme(View view) {
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_container, new SchemeFragment()).commit();
+
+        setTitle("Scheme");
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
