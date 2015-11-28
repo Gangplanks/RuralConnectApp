@@ -2,8 +2,6 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_home" android:icon="@mipmap/ic_home_black_18dp"
-            android:title="Home" />
         <item android:id="@+id/nav_myScheme" android:icon="@mipmap/ic_receipt_black_18dp"
             android:title="My Scheme" />
         <item android:id="@+id/nav_findScheme" android:icon="@android:drawable/ic_menu_search"

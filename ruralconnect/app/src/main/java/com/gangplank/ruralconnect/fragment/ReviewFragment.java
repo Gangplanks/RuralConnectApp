@@ -1,6 +1,7 @@
 package com.gangplank.ruralconnect.fragment;
 
 import android.app.Activity;
+import android.app.ListFragment;
 import android.os.Bundle;
 import android.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,10 +14,11 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.gangplank.ruralconnect.R;
+import com.gangplank.ruralconnect.adapter.ReviewAdapter;
 import com.gangplank.ruralconnect.fragment.dummy.DummyContent;
 
 
-public class ReviewFragment extends Fragment{
+public class ReviewFragment extends ListFragment {
 
 
     /**
@@ -43,8 +45,8 @@ public class ReviewFragment extends Fragment{
 
 
         // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+        mAdapter = new ReviewAdapter(getActivity(), R.layout.content_review, DummyContent.ITEMS);
+        setListAdapter(mAdapter);
     }
 
     @Override

@@ -28,7 +28,7 @@ public class NavigationActivity extends AppCompatActivity
 
     FragmentManager fragmentManager1 = getFragmentManager();
     FragmentManager fragmentManager2 = getFragmentManager();
-    ReviewFragment reviewFragment = new ReviewFragment();
+    ReviewFragment reviewFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,11 @@ public class NavigationActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        fragmentManager1.beginTransaction()
+                .replace(R.id.frame_container, new MySchemeFragment()).commit();
+
+        setTitle("My Scheme");
     }
 
     @Override
@@ -88,7 +93,7 @@ public class NavigationActivity extends AppCompatActivity
     }
 
     public void viewScheme(View view) {
-
+        reviewFragment = new ReviewFragment();
         fragmentManager1.beginTransaction()
                 .replace(R.id.frame_container, new SchemeFragment()).commit();
         fragmentManager2.beginTransaction().replace(R.id.frame_container1,reviewFragment).commit();
@@ -103,9 +108,7 @@ public class NavigationActivity extends AppCompatActivity
         int id = item.getItemId();
         Fragment fragment = null;
         fragmentManager2.beginTransaction().remove(reviewFragment).commit();
-        if (id == R.id.nav_home) {
-            fragment = new AboutFragment();
-        } else if (id == R.id.nav_myScheme) {
+        if (id == R.id.nav_myScheme) {
             fragment = new MySchemeFragment();
         } else if (id == R.id.nav_findScheme) {
             fragment = new AboutFragment();

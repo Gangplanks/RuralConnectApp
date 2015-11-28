@@ -25,7 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
-        android:text="Connect Collabrate Evole"
+        android:text="Connect Collaborate Evolve"
         android:id="@+id/textView2"
         android:layout_below="@+id/message"
         android:layout_centerHorizontal="true"
