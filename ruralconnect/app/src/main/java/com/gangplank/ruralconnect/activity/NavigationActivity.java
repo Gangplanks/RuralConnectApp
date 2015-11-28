@@ -5,6 +5,7 @@ import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -17,6 +18,7 @@ import android.view.MenuItem;
 
 import com.gangplank.ruralconnect.R;
 import com.gangplank.ruralconnect.fragment.AboutFragment;
+import com.gangplank.ruralconnect.fragment.MySchemeFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -82,35 +84,34 @@ public class NavigationActivity extends AppCompatActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
         Fragment fragment = null;
 
         if (id == R.id.nav_home) {
-            // Handle the camera action
+            fragment = new AboutFragment();
         } else if (id == R.id.nav_myScheme) {
-
+            fragment = new MySchemeFragment();
         } else if (id == R.id.nav_findScheme) {
-
+            fragment = new AboutFragment();
         } else if (id == R.id.nav_manage) {
-
+            fragment = new AboutFragment();
         } else if (id == R.id.nav_about) {
             fragment = new AboutFragment();
-            System.out.print("came in here");
         } else if (id == R.id.nav_logout) {
-
+            fragment = new AboutFragment();
         }
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
-                .replace(R.id.frame_container, fragment).commit();
+        if (fragment != null) {
+            FragmentManager fragmentManager = getFragmentManager();
+            fragmentManager.beginTransaction()
+                    .replace(R.id.frame_container, fragment).commit();
 
-        // update selected item and title, then close the drawer
-//        mDrawerList.setItemChecked(position, true);
-//        mDrawerList.setSelection(position);
-        setTitle(item.getTitle());
-       // mDrawerLayout.closeDrawer(mDrawerList);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
+            setTitle(item.getTitle());
+            DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+            drawer.closeDrawer(GravityCompat.START);
+        }
+        else {
+            Log.e("MainActivity", "Error in creating fragment");
+        }
         return true;
     }
 }
