@@ -1,4 +1,4 @@
-package com.gangplank.ruralconnect;
+package com.gangplank.ruralconnect.activity;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,9 +8,10 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.app.Activity;
 import android.os.Handler;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.gangplank.ruralconnect.R;
+
 import static android.widget.Toast.LENGTH_LONG;
 
 public class SplashActivity extends Activity {
