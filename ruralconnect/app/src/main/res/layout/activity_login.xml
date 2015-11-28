@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:text="Login With Aadhar"
+        android:id="@+id/login_banner"
+        android:gravity="center"
+        android:fontFamily="sans-serif"
+        android:textSize="20dp"
+        android:background="@color/mild_blue"
+        android:textColor="@color/grey"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Aadhar ID"
+        android:id="@+id/aadhar_id"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:fontFamily="sans-serif"
+        android:textSize="20dp"
+        android:layout_below="@+id/login_banner"
+        android:layout_marginTop="70dp"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/aadhar_text_view"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/aadhar_id"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="OTP"
+        android:id="@+id/otp"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:fontFamily="sans-serif"
+        android:textSize="20dp"
+        android:layout_below="@+id/aadhar_text_view"
+        android:layout_marginTop="40dp"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/otp_text_view"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/otp"
+        android:layout_marginTop="20dp"
+        />
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:id="@+id/login"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/otp_text_view"
+        android:layout_marginTop="40dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@color/mild_blue"
+        android:textColor="@color/grey"
+        android:textSize="20dp"
+        android:onClick="login"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have AADHAR? Click here to sign up"
+        android:id="@+id/register_link"
+        android:layout_gravity="center_horizontal"
+        android:linksClickable="true"
+        android:layout_below="@+id/login"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textSize="16dp"
+        android:textColor="@color/link_blue"
+        />
+
+</LinearLayout>
