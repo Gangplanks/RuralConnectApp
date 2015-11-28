@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.gangplank.ruralconnect.R;
 import com.gangplank.ruralconnect.adapter.MySchemeAdapter;
 import com.gangplank.ruralconnect.api.response.SchemeFilterResponse;
+import com.gangplank.ruralconnect.client.RestClient;
 import com.gangplank.ruralconnect.service.SchemeService;
 
 import java.util.List;
@@ -54,11 +55,7 @@ public class MySchemeFragment extends ListFragment{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://f7551972.ngrok.io/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
+        Retrofit retrofit = RestClient.getInstance();
         SchemeService schemeService = retrofit.create(SchemeService.class);
         Call<List<SchemeFilterResponse>> call = schemeService.getFilteredSchemes("Students", "23", "-", "-");
         call.enqueue(new Callback<List<SchemeFilterResponse>>() {
