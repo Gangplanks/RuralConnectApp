@@ -20,11 +20,15 @@ import android.view.MenuItem;
 import com.gangplank.ruralconnect.R;
 import com.gangplank.ruralconnect.fragment.AboutFragment;
 import com.gangplank.ruralconnect.fragment.MySchemeFragment;
+import com.gangplank.ruralconnect.fragment.ReviewFragment;
 import com.gangplank.ruralconnect.fragment.SchemeFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    FragmentManager fragmentManager1 = getFragmentManager();
+    FragmentManager fragmentManager2 = getFragmentManager();
+    ReviewFragment reviewFragment = new ReviewFragment();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,11 +88,13 @@ public class NavigationActivity extends AppCompatActivity
     }
 
     public void viewScheme(View view) {
-        FragmentManager fragmentManager = getFragmentManager();
-        fragmentManager.beginTransaction()
+
+        fragmentManager1.beginTransaction()
                 .replace(R.id.frame_container, new SchemeFragment()).commit();
+        fragmentManager2.beginTransaction().replace(R.id.frame_container1,reviewFragment).commit();
 
         setTitle("Scheme");
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -96,7 +102,7 @@ public class NavigationActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         int id = item.getItemId();
         Fragment fragment = null;
-
+        fragmentManager2.beginTransaction().remove(reviewFragment).commit();
         if (id == R.id.nav_home) {
             fragment = new AboutFragment();
         } else if (id == R.id.nav_myScheme) {
@@ -111,15 +117,14 @@ public class NavigationActivity extends AppCompatActivity
             fragment = new AboutFragment();
         }
         if (fragment != null) {
-            FragmentManager fragmentManager = getFragmentManager();
-            fragmentManager.beginTransaction()
+
+            fragmentManager1.beginTransaction()
                     .replace(R.id.frame_container, fragment).commit();
 
             setTitle(item.getTitle());
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
             drawer.closeDrawer(GravityCompat.START);
-        }
-        else {
+        } else {
             Log.e("MainActivity", "Error in creating fragment");
         }
         return true;
