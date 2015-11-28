@@ -1,5 +1,7 @@
 package com.gangplank.ruralconnect.activity;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -14,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.gangplank.ruralconnect.R;
+import com.gangplank.ruralconnect.fragment.AboutFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -81,21 +84,31 @@ public class NavigationActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        Fragment fragment = null;
 
-        if (id == R.id.nav_camara) {
+        if (id == R.id.nav_home) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_myScheme) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_findScheme) {
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_about) {
+            fragment = new AboutFragment();
+            System.out.print("came in here");
+        } else if (id == R.id.nav_logout) {
 
         }
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.frame_container, fragment).commit();
 
+        // update selected item and title, then close the drawer
+//        mDrawerList.setItemChecked(position, true);
+//        mDrawerList.setSelection(position);
+        setTitle(item.getTitle());
+       // mDrawerLayout.closeDrawer(mDrawerList);
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;

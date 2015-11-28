@@ -2,23 +2,18 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_camara" android:icon="@android:drawable/ic_menu_camera"
-            android:title="Import" />
-        <item android:id="@+id/nav_gallery" android:icon="@android:drawable/ic_menu_gallery"
-            android:title="Gallery" />
-        <item android:id="@+id/nav_slideshow" android:icon="@android:drawable/ic_menu_slideshow"
-            android:title="Slideshow" />
-        <item android:id="@+id/nav_manage" android:icon="@android:drawable/ic_menu_manage"
-            android:title="Tools" />
+        <item android:id="@+id/nav_home" android:icon="@mipmap/ic_home_black_18dp"
+            android:title="Home" />
+        <item android:id="@+id/nav_myScheme" android:icon="@mipmap/ic_receipt_black_18dp"
+            android:title="My Scheme" />
+        <item android:id="@+id/nav_findScheme" android:icon="@android:drawable/ic_menu_search"
+            android:title="Find a Scheme" />
+        <item android:id="@+id/nav_manage" android:icon="@mipmap/ic_supervisor_account_black_18dp"
+            android:title="Communities" />
+        <item android:id="@+id/nav_about" android:icon="@android:drawable/ic_menu_help"
+            android:title="About" />
+        <item android:id="@+id/nav_logout" android:icon="@mipmap/ic_power_settings_new_black_24dp"
+            android:title="Logout" />
     </group>
-
-    <item android:title="Communicate">
-        <menu>
-            <item android:id="@+id/nav_share" android:icon="@android:drawable/ic_menu_share"
-                android:title="Share" />
-            <item android:id="@+id/nav_send" android:icon="@android:drawable/ic_menu_send"
-                android:title="Send" />
-        </menu>
-    </item>
 
 </menu>
