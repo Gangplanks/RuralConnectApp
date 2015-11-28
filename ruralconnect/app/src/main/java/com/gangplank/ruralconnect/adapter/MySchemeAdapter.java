@@ -8,23 +8,24 @@ import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
 import com.gangplank.ruralconnect.R;
+import com.gangplank.ruralconnect.api.response.SchemeFilterResponse;
 import com.gangplank.ruralconnect.fragment.dummy.DummyContent;
 
 import java.util.List;
 
-public class MySchemeAdapter extends ArrayAdapter<DummyContent.DummyItem> {
+public class MySchemeAdapter extends ArrayAdapter<SchemeFilterResponse> {
 
     private final LayoutInflater mInflater;
 
-    public MySchemeAdapter(Context context, int recently_viewed_scheme_item, List<DummyContent.DummyItem> ITEMS) {
-        super(context,recently_viewed_scheme_item, ITEMS);
+    public MySchemeAdapter(Context context, int recently_viewed_scheme_item, List<SchemeFilterResponse> filteredSchemes) {
+        super(context,recently_viewed_scheme_item, filteredSchemes);
         mInflater = (LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
-    public void setData(List<DummyContent.DummyItem> data) {
+    public void setData(List<SchemeFilterResponse> data) {
         clear();
         if (data != null) {
-            for (DummyContent.DummyItem appEntry : data) {
+            for (SchemeFilterResponse appEntry : data) {
                 add(appEntry);
             }
         }
@@ -42,9 +43,9 @@ public class MySchemeAdapter extends ArrayAdapter<DummyContent.DummyItem> {
             view = convertView;
         }
 
-        DummyContent.DummyItem item = getItem(position);
-        ((TextView)view.findViewById(R.id.content)).setText(item.content);
-        ((TextView) view.findViewById(R.id.id)).setText(item.id);
+        SchemeFilterResponse scheme = getItem(position);
+        ((TextView)view.findViewById(R.id.content)).setText(scheme.getName());
+//        ((TextView) view.findViewById(R.id.id)).setText(scheme.getId());
 
         return view;
     }

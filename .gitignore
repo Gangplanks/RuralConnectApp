@@ -28,3 +28,6 @@ proguard/
 
 #ds store
 .DS_Store
+
+.idea/*
+.iml/*

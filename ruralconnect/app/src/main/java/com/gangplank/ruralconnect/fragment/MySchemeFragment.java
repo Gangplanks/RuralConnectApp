@@ -1,8 +1,6 @@
 package com.gangplank.ruralconnect.fragment;
 
-import android.app.Fragment;
 import android.app.ListFragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,7 +12,16 @@ import android.widget.TextView;
 
 import com.gangplank.ruralconnect.R;
 import com.gangplank.ruralconnect.adapter.MySchemeAdapter;
-import com.gangplank.ruralconnect.fragment.dummy.DummyContent;
+import com.gangplank.ruralconnect.api.response.SchemeFilterResponse;
+import com.gangplank.ruralconnect.service.SchemeService;
+
+import java.util.List;
+
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
 
 
 public class MySchemeFragment extends ListFragment{
@@ -46,8 +53,29 @@ public class MySchemeFragment extends ListFragment{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mAdapter = new MySchemeAdapter(getActivity(), R.layout.content_myscheme, DummyContent.ITEMS);
-        setListAdapter(mAdapter);
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://10.0.2.2:3000/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        SchemeService schemeService = retrofit.create(SchemeService.class);
+        Call<List<SchemeFilterResponse>> call = schemeService.getFilteredSchemes("Students", "23", "-", "-");
+        call.enqueue(new Callback<List<SchemeFilterResponse>>() {
+            @Override
+            public void onResponse(Response<List<SchemeFilterResponse>> response, Retrofit retrofit) {
+                int statusCode = response.code();
+                List<SchemeFilterResponse> filteredSchemes = response.body();
+                mAdapter = new MySchemeAdapter(getActivity(), R.layout.content_myscheme, filteredSchemes);
+                setListAdapter(mAdapter);
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                System.out.println(t);
+                // Log error here since request failed
+            }
+        });
     }
 
     @Override
