@@ -1,74 +1,124 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+    android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    >
+    android:weightSum="1">
 
     <TextView
-        android:id="@+id/login_title"
         android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        android:text="SIGN UP"
-        android:fontFamily="sans-serif"
-        android:textSize="25dp"
-        android:textColor="@color/white"
-        android:textStyle="bold"
+        android:layout_height="60dp"
+        android:text="Register"
+        android:id="@+id/login_banner"
         android:gravity="center"
-        />
-    <EditText
+        android:fontFamily="sans-serif"
+        android:textSize="20dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/white"
+        android:textStyle="normal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Name"
         android:id="@+id/name"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:hint="Name"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/login_title"
-        />
-    <EditText
-        android:id="@+id/age"
-        android:layout_width="fill_parent"
-        android:layout_height="40dp"
-        android:hint="Age"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="40dp"
-        android:layout_below="@id/name"
-        />
-    <EditText
-        android:id="@+id/income"
-        android:layout_width="70dp"
-        android:layout_height="40dp"
-        android:textAlignment="center"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:layout_below="@id/name"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:fontFamily="sans-serif"
+        android:textSize="20dp"
+        android:layout_below="@+id/login_banner"
+        android:layout_marginTop="70dp"
         />
 
     <EditText
-        android:id="@+id/gender"
-        android:layout_width="290dp"
-        android:layout_height="40dp"
-        android:hint="Gender"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:layout_below="@id/name"
-        android:typeface="serif"
-        android:inputType="phone"
-        android:maxLength="10"/>
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/name_text"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/login_banner"
+        android:layout_marginTop="20dp"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Age"
+        android:id="@+id/age"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:fontFamily="sans-serif"
+        android:textSize="20dp"
+        android:layout_below="@+id/name"
+        android:layout_marginTop="40dp"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/age_text"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/age"
+        android:layout_marginTop="20dp"
+        />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Income"
+        android:id="@+id/income"
+        android:layout_gravity="left"
+        android:layout_marginLeft="30dp"
+        android:fontFamily="sans-serif"
+        android:textSize="20dp"
+        android:layout_below="@+id/age_text"
+        android:layout_marginTop="40dp"
+        />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/age_text_view"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_below="@+id/otp"
+        android:layout_marginTop="15dp"
+        />
 
     <Button
-        android:id="@+id/submit"
-        android:layout_width="150dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:background="@android:color/holo_blue_light"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="@dimen/activity_horizontal_margin"
-        android:layout_marginBottom="100dp"
-        android:text="SIGN UP"
-        android:onClick="submitForm"
+        android:text="Register"
+        android:id="@+id/register"
+        android:layout_gravity="center_horizontal"
+        android:layout_below="@+id/otp_text_view"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:onClick="register"
+        android:allowUndo="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Don't have AADHAR? Click here to sign up"
+        android:id="@+id/register_link"
+        android:layout_gravity="center_horizontal"
+        android:linksClickable="true"
+        android:layout_below="@+id/login"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textSize="16dp"
+        android:onClick="register"
+        android:textColor="@color/link_blue"
         />
 
 </LinearLayout>
