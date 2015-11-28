@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.gangplank.ruralconnect.R;
 import com.gangplank.ruralconnect.fragment.AboutFragment;
@@ -25,6 +26,8 @@ import com.gangplank.ruralconnect.fragment.SchemeFragment;
 
 public class NavigationActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    public static Bundle myBundle = new Bundle();
 
     FragmentManager fragmentManager1 = getFragmentManager();
     FragmentManager fragmentManager2 = getFragmentManager();
@@ -94,6 +97,8 @@ public class NavigationActivity extends AppCompatActivity
 
     public void viewScheme(View view) {
         reviewFragment = new ReviewFragment();
+        TextView textView = (TextView) view.findViewById(R.id.content);
+        this.myBundle.putInt("scheme_id", (Integer) textView.getTag());
         fragmentManager1.beginTransaction()
                 .replace(R.id.frame_container, new SchemeFragment()).commit();
         fragmentManager2.beginTransaction().replace(R.id.frame_container1,reviewFragment).commit();

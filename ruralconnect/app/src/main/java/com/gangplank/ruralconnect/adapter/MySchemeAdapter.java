@@ -45,7 +45,9 @@ public class MySchemeAdapter extends ArrayAdapter<SchemeFilterResponse> {
         }
 
         SchemeFilterResponse scheme = getItem(position);
-        ((TextView)view.findViewById(R.id.content)).setText(scheme.getName());
+        TextView textView = (TextView) view.findViewById(R.id.content);
+        textView.setText(scheme.getName());
+        textView.setTag(scheme.getId());
         String icon = scheme.getIcon();
         int id = getContext().getResources().getIdentifier(icon, "mipmap", getContext().getPackageName());
         ((ImageView)view.findViewById(R.id.category_icon)).setImageResource(id);
