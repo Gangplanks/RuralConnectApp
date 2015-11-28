@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.gangplank.ruralconnect.R;
@@ -45,8 +46,9 @@ public class MySchemeAdapter extends ArrayAdapter<SchemeFilterResponse> {
 
         SchemeFilterResponse scheme = getItem(position);
         ((TextView)view.findViewById(R.id.content)).setText(scheme.getName());
-//        ((TextView) view.findViewById(R.id.id)).setText(scheme.getId());
-
+        String icon = scheme.getIcon();
+        int id = getContext().getResources().getIdentifier(icon, "mipmap", getContext().getPackageName());
+        ((ImageView)view.findViewById(R.id.category_icon)).setImageResource(id);
         return view;
     }
 }

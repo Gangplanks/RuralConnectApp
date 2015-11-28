@@ -55,7 +55,7 @@ public class MySchemeFragment extends ListFragment{
         super.onCreate(savedInstanceState);
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://10.0.2.2:3000/")
+                .baseUrl("http://f7551972.ngrok.io/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
